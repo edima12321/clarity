@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src:
+    local("OpenDyslexic"),
+    local("OpenDyslexic-Regular");
+  font-display: swap;
+}
+
+@theme {
+  --font-readable: Inter, Lexend, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-dyslexic: OpenDyslexic, Lexend, Verdana, Arial, sans-serif;
+  --shadow-soft: 0 18px 45px rgb(15 23 42 / 0.08);
+  --shadow-inner-soft: inset 0 0 0 1px rgb(13 148 136 / 0.18), 0 14px 30px rgb(15 23 42 / 0.08);
+  --color-reading: #fbfaf6;
+}
+
+:root {
+  color-scheme: light;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #99f6e4;
+  color: #0f172a;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.contrast-more {
+  --color-reading: #ffffff;
+}
+
+.contrast-more * {
+  border-color: #0f172a;
+}
+
+.contrast-more.dark * {
+  border-color: #f8fafc;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
